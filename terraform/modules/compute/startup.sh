@@ -53,3 +53,5 @@ UNIT
 # Enable and start service
 systemctl daemon-reload
 systemctl enable --now flask.service
+
+# Flask’s built-in server is intended mainly for development. I used Gunicorn as the WSGI application server so the VM runs the Flask application in a more production-like way, with worker management and better concurrency. The load balancer still handles external traffic distribution, while Gunicorn handles requests inside each VM.
